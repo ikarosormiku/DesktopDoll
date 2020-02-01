@@ -3,7 +3,8 @@
 Role::Role()
 {
     m_role=RoleDef::blbl22;
-    m_AudioPath = QDir::currentPath()+gAudioFolderPath22;
+    m_AudioPath = gAudioFolderPath22;
+    m_ImagePath = gImageFolderPath22;
 }
 
 void Role::SetRole(RoleDef role)
@@ -11,19 +12,23 @@ void Role::SetRole(RoleDef role)
     m_role=role;
     switch (role) {
     case RoleDef::blbl22:{
-        m_AudioPath = QDir::currentPath()+gAudioFolderPath22;
+        m_AudioPath = gAudioFolderPath22;
+        m_ImagePath = gImageFolderPath22;
         break;
     }
     case RoleDef::yousa:{
-        m_AudioPath = QDir::currentPath()+gAudioFolderPath22;
+        m_AudioPath = gAudioFolderPathYousa;
+        m_ImagePath = gImageFolderPathYousa;
         break;
     }
     case RoleDef::liantong1:{
-        m_AudioPath= QDir::currentPath()+gAudioFolderPathLiantong1;
+        m_AudioPath = gAudioFolderPathLiantong1;
+        m_ImagePath = gImageFolderPathLiantong1;
         break;
     }
     case RoleDef::kulasuo:{
-        m_AudioPath= QDir::currentPath()+gAudioFolderPathKulasuo;
+        m_AudioPath = gAudioFolderPathKulasuo;
+        m_ImagePath = gImageFolderPathKulasuo;
         break;
     }
     }
@@ -75,28 +80,9 @@ const QString Role::GetRoleAudioText(AudioDef audio)
     return path;
 }
 
-const QString Role::GetRoleImage(RoleDef role)
+const QString Role::GetRoleBackgroundImage()
 {
-    QString path;
-    switch (role) {
-    case RoleDef::blbl22:{
-        path=gImagePath22;
-        break;
-    }
-    case RoleDef::yousa:{
-        path=gImagePathYousa;
-        break;
-    }
-    case RoleDef::liantong1:{
-        path=gImagePathLiantong1;
-        break;
-    }
-    case RoleDef::kulasuo:{
-        path=gImagePathKulasuo;
-        break;
-    }
-    }
-    return path;
+    return m_ImagePath+gBackgroundImage;
 }
 
 const QString Role::RoleAudio(AudioDef audio)

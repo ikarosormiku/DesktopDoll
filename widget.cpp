@@ -94,8 +94,8 @@ void Widget::InitWindowUI()
     connect(Icon,&QSystemTrayIcon::activated,this,&Widget::onIconActivated);
     connect(Icon,&QSystemTrayIcon::messageClicked,this,&Widget::onIconMessage);
 
-    ui->frame->setStyleSheet("border-image: url(:/images/Other/Textborder.png)");
-    ui->tEd_Text->setStyleSheet("border-image:url(:images/Other/TextBackground.png);"
+    ui->frame->setStyleSheet("border-image: url("+gUITextborder+")");
+    ui->tEd_Text->setStyleSheet("border-image:url("+gUITextBackground+");"
                                 "color:white");
 }
 
@@ -144,7 +144,8 @@ void Widget::ShowAudioTextPlayAudio(AudioDef audio)
 void Widget::ChangeRole(RoleDef role)
 {
     CurRole->SetRole(role);
-    QString path = CurRole->GetRoleImage(role);
+    QString path = CurRole->GetRoleBackgroundImage();
+    //QString path = QDir::currentPath()+"/release/images/22/22.png";
     QPixmap Background(path);
     QPixmap ChangeBackground = Background.scaled(this->width(),this->height(), Qt::IgnoreAspectRatio);
     ui->lab_background->setPixmap(ChangeBackground);

@@ -17,10 +17,10 @@ RoleSelection::~RoleSelection()
 void RoleSelection::InitWindowUI()
 {
 //    QPalette pa(gHeadImagePath22);
-    ui->btn_22->setStyleSheet("QPushButton{border-image: url("+gHeadImagePath22+");}");
-    ui->btn_kulasuo->setStyleSheet("QPushButton{border-image: url("+gHeadImagePathKulasuo+");}");
-    ui->btn_yousa->setStyleSheet("QPushButton{border-image: url("+gHeadImagePathYousa+");}");
-    ui->btn_liantong1->setStyleSheet("QPushButton{border-image: url("+gHeadImagePathLiantong1+");}");
+    ui->btn_22->setStyleSheet("QPushButton{border-image: url("+gImageFolderPath22+gHeadImage+");}");
+    ui->btn_kulasuo->setStyleSheet("QPushButton{border-image: url("+gImageFolderPathKulasuo+gHeadImage+");}");
+    ui->btn_yousa->setStyleSheet("QPushButton{border-image: url("+gImageFolderPathYousa+gHeadImage+");}");
+    ui->btn_liantong1->setStyleSheet("QPushButton{border-image: url("+gImageFolderPathLiantong1+gHeadImage+");}");
 }
 
 void RoleSelection::SetRoleInfo()
@@ -30,22 +30,22 @@ void RoleSelection::SetRoleInfo()
     switch (CurRole) {
     case RoleDef::blbl22:{
         Name="22";
-        HeadPath=gHeadImagePath22;
+        HeadPath=gImageFolderPath22+gHeadImage;
         break;
     }
     case RoleDef::yousa:{
         Name="泠鸢yousa";
-        HeadPath=gHeadImagePathYousa;
+        HeadPath=gImageFolderPathYousa+gHeadImage;
         break;
     }
     case RoleDef::kulasuo:{
         Name="库拉索";
-        HeadPath=gHeadImagePathKulasuo;
+        HeadPath=gImageFolderPathKulasuo+gHeadImage;
         break;
     }
     case RoleDef::liantong1:{
         Name="小红";
-        HeadPath=gHeadImagePathLiantong1;
+        HeadPath=gImageFolderPathLiantong1+gHeadImage;
         break;
     }
     }

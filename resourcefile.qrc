@@ -1,16 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/22/22.png</file>
-        <file>images/22/22head.png</file>
         <file>images/icon/22icon.ico</file>
         <file>images/icon/icoCalculator.ico</file>
-        <file>images/kulasuo/kulasuohead.png</file>
-        <file>images/liantong1/liantong1.png</file>
-        <file>images/liantong1/liantong1head.png</file>
-        <file>images/Other/TextBackground.png</file>
-        <file>images/Other/Textborder.png</file>
-        <file>images/yousa/yousa.png</file>
-        <file>images/yousa/yousahead.png</file>
-        <file>images/kulasuo/kulasuo.png</file>
     </qresource>
 </RCC>
