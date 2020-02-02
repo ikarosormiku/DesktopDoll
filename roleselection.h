@@ -28,6 +28,18 @@ private slots:
 
     void on_btn_liantong1_clicked();
 
+    void on_btn_TLXlifu_clicked();
+
+    void on_btn_xili_clicked();
+
+    void on_btn_biruishuiyi_clicked();
+
+    void on_btn_heitaizi_clicked();
+
+    void on_btn_heitaiziSZ_clicked();
+
+    void on_btn_niaohai_clicked();
+
 private:
     Ui::RoleSelection *ui;
     RoleDef CurRole;

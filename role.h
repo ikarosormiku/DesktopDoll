@@ -14,10 +14,10 @@ private:
     RoleDef m_role;
     QString m_AudioPath;
     QString m_ImagePath;
-    const QString RoleAudio(AudioDef audio);
-    const QString BiLiBiLi22(AudioDef audio,DataTypeDef type);
-    const QString LianTong1(AudioDef audio,DataTypeDef type);
-    const QString Kulasuo(AudioDef audio,DataTypeDef type);
+    const QString GetRoleOpenText();
+    const QString GetRoleChat1Text();
+    const QString GetRoleChat2Text();
+    const QString GetRoleChat3Text();
 };
 
 #endif // ROLE_H

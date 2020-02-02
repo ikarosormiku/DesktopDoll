@@ -94,8 +94,8 @@ void Widget::InitWindowUI()
     connect(Icon,&QSystemTrayIcon::activated,this,&Widget::onIconActivated);
     connect(Icon,&QSystemTrayIcon::messageClicked,this,&Widget::onIconMessage);
 
-    ui->frame->setStyleSheet("border-image: url("+gUITextborder+")");
-    ui->tEd_Text->setStyleSheet("border-image:url("+gUITextBackground+");"
+    ui->frame->setStyleSheet("border-image: url("+UIResources::UITextborder+")");
+    ui->tEd_Text->setStyleSheet("border-image:url("+UIResources::UITextBackground+");"
                                 "color:white");
 }
 
@@ -145,9 +145,8 @@ void Widget::ChangeRole(RoleDef role)
 {
     CurRole->SetRole(role);
     QString path = CurRole->GetRoleBackgroundImage();
-    //QString path = QDir::currentPath()+"/release/images/22/22.png";
     QPixmap Background(path);
-    QPixmap ChangeBackground = Background.scaled(this->width(),this->height(), Qt::IgnoreAspectRatio);
+    QPixmap ChangeBackground = Background.scaled(ui->lab_background->width(),ui->lab_background->height(), Qt::IgnoreAspectRatio);
     ui->lab_background->setPixmap(ChangeBackground);
     ShowAudioTextPlayAudio(AudioDef::Open);
 }
@@ -173,6 +172,7 @@ AudioDef Widget::ChatType()
 
 void Widget::on_Widget_customContextMenuRequested(const QPoint &pos)
 {
+    Q_UNUSED(pos);
     //创建菜单对象
     QMenu *pMenu = new QMenu(this);
     QAction *pWindowAction = new  QAction(tr("计算器"),this);

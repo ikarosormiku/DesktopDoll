@@ -3,8 +3,8 @@
 Role::Role()
 {
     m_role=RoleDef::blbl22;
-    m_AudioPath = gAudioFolderPath22;
-    m_ImagePath = gImageFolderPath22;
+    m_AudioPath = RoleResources::blbl22::AudioPath;
+    m_ImagePath = RoleResources::blbl22::ImagePath;
 }
 
 void Role::SetRole(RoleDef role)
@@ -12,23 +12,53 @@ void Role::SetRole(RoleDef role)
     m_role=role;
     switch (role) {
     case RoleDef::blbl22:{
-        m_AudioPath = gAudioFolderPath22;
-        m_ImagePath = gImageFolderPath22;
+        m_AudioPath = RoleResources::blbl22::AudioPath;
+        m_ImagePath = RoleResources::blbl22::ImagePath;
         break;
     }
-    case RoleDef::yousa:{
-        m_AudioPath = gAudioFolderPathYousa;
-        m_ImagePath = gImageFolderPathYousa;
+    case RoleDef::biruishuiyi:{
+        m_AudioPath = RoleResources::biruishuiyi::AudioPath;
+        m_ImagePath = RoleResources::biruishuiyi::ImagePath;
         break;
     }
-    case RoleDef::liantong1:{
-        m_AudioPath = gAudioFolderPathLiantong1;
-        m_ImagePath = gImageFolderPathLiantong1;
+    case RoleDef::heitaizi:{
+        m_AudioPath = RoleResources::heitaizi::AudioPath;
+        m_ImagePath = RoleResources::heitaizi::ImagePath;
+        break;
+    }
+    case RoleDef::heitaizishuizhuo:{
+        m_AudioPath = RoleResources::heitaizishuizhuo::AudioPath;
+        m_ImagePath = RoleResources::heitaizishuizhuo::ImagePath;
         break;
     }
     case RoleDef::kulasuo:{
-        m_AudioPath = gAudioFolderPathKulasuo;
-        m_ImagePath = gImageFolderPathKulasuo;
+        m_AudioPath = RoleResources::kulasuo::AudioPath;
+        m_ImagePath = RoleResources::kulasuo::ImagePath;
+        break;
+    }
+    case RoleDef::liantong1:{
+        m_AudioPath = RoleResources::liantong1::AudioPath;
+        m_ImagePath = RoleResources::liantong1::ImagePath;
+        break;
+    }
+    case RoleDef::niaohai:{
+        m_AudioPath = RoleResources::niaohai::AudioPath;
+        m_ImagePath = RoleResources::niaohai::ImagePath;
+        break;
+    }
+    case RoleDef::tianlangxinglifu:{
+        m_AudioPath = RoleResources::tianlangxinglifu::AudioPath;
+        m_ImagePath = RoleResources::tianlangxinglifu::ImagePath;
+        break;
+    }
+    case RoleDef::xili:{
+        m_AudioPath = RoleResources::xili::AudioPath;
+        m_ImagePath = RoleResources::xili::ImagePath;
+        break;
+    }
+    case RoleDef::yousa:{
+        m_AudioPath = RoleResources::yousa::AudioPath;
+        m_ImagePath = RoleResources::yousa::ImagePath;
         break;
     }
     }
@@ -37,22 +67,19 @@ void Role::SetRole(RoleDef role)
 const QString Role::GetRoleAudio(AudioDef audio)
 {
     QString path;
-    switch (m_role) {
-    case RoleDef::blbl22:{
-        path = BiLiBiLi22(audio,DataTypeDef::Audio);
+    switch (audio) {
+    case AudioDef::Open:
+        path=m_AudioPath+AudioResources::OpenPath;
         break;
-    }
-    case RoleDef::yousa:{
+    case AudioDef::Chat1:
+        path=m_AudioPath+AudioResources::Chat1Path;
         break;
-    }
-    case RoleDef::liantong1:{
-        path = LianTong1(audio,DataTypeDef::Audio);
+    case AudioDef::Chat2:
+        path=m_AudioPath+AudioResources::Chat2Path;
         break;
-    }
-    case RoleDef::kulasuo:{
-        path = Kulasuo(audio,DataTypeDef::Audio);
+    case AudioDef::Chat3:
+        path=m_AudioPath+AudioResources::Chat3Path;
         break;
-    }
     }
     return path;
 }
@@ -60,150 +87,176 @@ const QString Role::GetRoleAudio(AudioDef audio)
 const QString Role::GetRoleAudioText(AudioDef audio)
 {
     QString path;
-    switch (m_role) {
-    case RoleDef::blbl22:{
-        path = BiLiBiLi22(audio,DataTypeDef::Text);
+    switch (audio) {
+    case AudioDef::Open:
+        path=GetRoleOpenText();
         break;
-    }
-    case RoleDef::yousa:{
+    case AudioDef::Chat1:
+        path=GetRoleChat1Text();
         break;
-    }
-    case RoleDef::liantong1:{
-        path = LianTong1(audio,DataTypeDef::Text);
+    case AudioDef::Chat2:
+        path=GetRoleChat2Text();
         break;
-    }
-    case RoleDef::kulasuo:{
-        path = Kulasuo(audio,DataTypeDef::Text);
+    case AudioDef::Chat3:
+        path=GetRoleChat3Text();
         break;
-    }
     }
     return path;
 }
 
 const QString Role::GetRoleBackgroundImage()
 {
-    return m_ImagePath+gBackgroundImage;
+    return m_ImagePath+ImageResources::BackgroundImage;
 }
 
-const QString Role::RoleAudio(AudioDef audio)
+const QString Role::GetRoleOpenText()
 {
     QString path;
-    switch (audio) {
-    case AudioDef::Open:{
-        path=m_AudioPath+gOpenAudio;
+    switch (m_role) {
+    case RoleDef::blbl22:
+        path=RoleResources::blbl22::OpenText;
         break;
-    }
-    case AudioDef::Chat1:{
-        path=m_AudioPath+gChat1Audio;
+    case RoleDef::biruishuiyi:
+        path=RoleResources::biruishuiyi::OpenText;
         break;
-    }
-    case AudioDef::Chat2:{
-        path=m_AudioPath+gChat2Audio;
+    case RoleDef::heitaizi:
+        path=RoleResources::heitaizi::OpenText;
         break;
-    }
-    case AudioDef::Chat3:{
-        path=m_AudioPath+gChat3Audio;
+    case RoleDef::heitaizishuizhuo:
+        path=RoleResources::heitaizishuizhuo::OpenText;
         break;
-    }
+    case RoleDef::kulasuo:
+        path=RoleResources::kulasuo::OpenText;
+        break;
+    case RoleDef::liantong1:
+        path=RoleResources::liantong1::OpenText;
+        break;
+    case RoleDef::niaohai:
+        path=RoleResources::niaohai::OpenText;
+        break;
+    case RoleDef::tianlangxinglifu:
+        path=RoleResources::tianlangxinglifu::OpenText;
+        break;
+    case RoleDef::xili:
+        path=RoleResources::xili::OpenText;
+        break;
+    case RoleDef::yousa:
+        path=RoleResources::yousa::OpenText;
+        break;
     }
     return path;
 }
 
-const QString Role::BiLiBiLi22(AudioDef audio, DataTypeDef type)
+const QString Role::GetRoleChat1Text()
 {
     QString path;
-    switch (type) {
-    case DataTypeDef::Audio:{
-        path=RoleAudio(audio);
+    switch (m_role) {
+    case RoleDef::blbl22:
+        path=RoleResources::blbl22::ChatText1;
         break;
-    }
-    case DataTypeDef::Text:{
-        switch (audio) {
-        case AudioDef::Open:{
-            path=gOpenAudioText22;
-            break;
-        }
-        case AudioDef::Chat1:{
-            path=gChatAudioText22_1;
-            break;
-        }
-        case AudioDef::Chat2:{
-            path=gChatAudioText22_2;
-            break;
-        }
-        case AudioDef::Chat3:{
-            path=gChatAudioText22_3;
-            break;
-        }
-        }
+    case RoleDef::biruishuiyi:
+        path=RoleResources::biruishuiyi::ChatText1;
         break;
-    }
+    case RoleDef::heitaizi:
+        path=RoleResources::heitaizi::ChatText1;
+        break;
+    case RoleDef::heitaizishuizhuo:
+        path=RoleResources::heitaizishuizhuo::ChatText1;
+        break;
+    case RoleDef::kulasuo:
+        path=RoleResources::kulasuo::ChatText1;
+        break;
+    case RoleDef::liantong1:
+        path=RoleResources::liantong1::ChatText1;
+        break;
+    case RoleDef::niaohai:
+        path=RoleResources::niaohai::ChatText1;
+        break;
+    case RoleDef::tianlangxinglifu:
+        path=RoleResources::tianlangxinglifu::ChatText1;
+        break;
+    case RoleDef::xili:
+        path=RoleResources::xili::ChatText1;
+        break;
+    case RoleDef::yousa:
+        path=RoleResources::yousa::ChatText1;
+        break;
     }
     return path;
 }
 
-const QString Role::LianTong1(AudioDef audio, DataTypeDef type)
+const QString Role::GetRoleChat2Text()
 {
     QString path;
-    switch (type) {
-    case DataTypeDef::Audio:{
-        path=RoleAudio(audio);
+    switch (m_role) {
+    case RoleDef::blbl22:
+        path=RoleResources::blbl22::ChatText2;
         break;
-    }
-    case DataTypeDef::Text:{
-        switch (audio) {
-        case AudioDef::Open:{
-            path=gOpenAudioTextLiantong1;
-            break;
-        }
-        case AudioDef::Chat1:{
-            path=gChatAudioTextLiantong1_1;
-            break;
-        }
-        case AudioDef::Chat2:{
-            path=gChatAudioTextLiantong1_2;
-            break;
-        }
-        case AudioDef::Chat3:{
-            path=gChatAudioTextLiantong1_3;
-            break;
-        }
-        }
+    case RoleDef::biruishuiyi:
+        path=RoleResources::biruishuiyi::ChatText2;
         break;
-    }
+    case RoleDef::heitaizi:
+        path=RoleResources::heitaizi::ChatText2;
+        break;
+    case RoleDef::heitaizishuizhuo:
+        path=RoleResources::heitaizishuizhuo::ChatText2;
+        break;
+    case RoleDef::kulasuo:
+        path=RoleResources::kulasuo::ChatText2;
+        break;
+    case RoleDef::liantong1:
+        path=RoleResources::liantong1::ChatText2;
+        break;
+    case RoleDef::niaohai:
+        path=RoleResources::niaohai::ChatText2;
+        break;
+    case RoleDef::tianlangxinglifu:
+        path=RoleResources::tianlangxinglifu::ChatText2;
+        break;
+    case RoleDef::xili:
+        path=RoleResources::xili::ChatText2;
+        break;
+    case RoleDef::yousa:
+        path=RoleResources::yousa::ChatText2;
+        break;
     }
     return path;
 }
 
-const QString Role::Kulasuo(AudioDef audio, DataTypeDef type)
+const QString Role::GetRoleChat3Text()
 {
     QString path;
-    switch (type) {
-    case DataTypeDef::Audio:{
-        path=RoleAudio(audio);
+    switch (m_role) {
+    case RoleDef::blbl22:
+        path=RoleResources::blbl22::ChatText3;
         break;
-    }
-    case DataTypeDef::Text:{
-        switch (audio) {
-        case AudioDef::Open:{
-            path=gOpenAudioTextKulasuo;
-            break;
-        }
-        case AudioDef::Chat1:{
-            path=gChatAudioTextKulasuo_1;
-            break;
-        }
-        case AudioDef::Chat2:{
-            path=gChatAudioTextKulasuo_2;
-            break;
-        }
-        case AudioDef::Chat3:{
-            path=gChatAudioTextKulasuo_3;
-            break;
-        }
-        }
+    case RoleDef::biruishuiyi:
+        path=RoleResources::biruishuiyi::ChatText3;
         break;
-    }
+    case RoleDef::heitaizi:
+        path=RoleResources::heitaizi::ChatText3;
+        break;
+    case RoleDef::heitaizishuizhuo:
+        path=RoleResources::heitaizishuizhuo::ChatText3;
+        break;
+    case RoleDef::kulasuo:
+        path=RoleResources::kulasuo::ChatText3;
+        break;
+    case RoleDef::liantong1:
+        path=RoleResources::liantong1::ChatText3;
+        break;
+    case RoleDef::niaohai:
+        path=RoleResources::niaohai::ChatText3;
+        break;
+    case RoleDef::tianlangxinglifu:
+        path=RoleResources::tianlangxinglifu::ChatText3;
+        break;
+    case RoleDef::xili:
+        path=RoleResources::xili::ChatText3;
+        break;
+    case RoleDef::yousa:
+        path=RoleResources::yousa::ChatText3;
+        break;
     }
     return path;
 }
