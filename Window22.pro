@@ -9,7 +9,7 @@ QT       += multimedia
 QT       += core
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Window22
+TARGET = DesktopDoll
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -28,17 +28,20 @@ SOURCES += \
         main.cpp \
         widget.cpp \
     role.cpp \
-    roleselection.cpp
+    roleselection.cpp \
+    windowsetup.cpp
 
 HEADERS += \
         widget.h \
     globaldef.h \
     role.h \
-    roleselection.h
+    roleselection.h \
+    windowsetup.h
 
 FORMS += \
         widget.ui \
-    roleselection.ui
+    roleselection.ui \
+    windowsetup.ui
 
 RESOURCES += \
     resourcefile.qrc

@@ -5,6 +5,7 @@
 enum RightClickEenuDef{
     Calculator=1,
     OpenRoleSelectionWindow,
+    OpenSetUpWindow,
     WindowClose
 };
 
@@ -27,10 +28,14 @@ enum RoleDef{//定义角色
     xili,
     yousa
 };
+//Resource Path
+const QString ImagesResourcePath = QDir::currentPath()+"/release/resource/images.rcc";
+const QString AudioResourcePath = QDir::currentPath()+"/release/resource/audio.rcc";
+//const QString ImagesResourcePath = QDir::currentPath()+"/resource/images.rcc";
+//const QString AudioResourcePath = QDir::currentPath()+"/resource/audio.rcc";
 //audio path define
 namespace AudioResources{
-const QString AudioPath=QDir::currentPath()+"/audio";
-//const QString AudioPath=QDir::currentPath()+"/release/audio";
+const QString AudioPath="qrc:/audio";
 const QString OpenPath = "/open.mp3";
 const QString Chat1Path = "/chat1.mp3";
 const QString Chat2Path = "/chat2.mp3";
@@ -39,16 +44,14 @@ const QString Chat3Path = "/chat3.mp3";
 
 //image path define
 namespace ImageResources{
-const QString ImagePath=QDir::currentPath()+"/images";
-//const QString ImagePath=QDir::currentPath()+"/release/images";
+const QString ImagePath=":/images";
 const QString BackgroundImage="/background.png";
 const QString HeadImage="/head.png";
 }
 
 //UI path define
 namespace UIResources{
-const QString UIimagePath=QDir::currentPath()+"/images/other";
-//const QString UIimagePath=QDir::currentPath()+"/release/images/other";
+const QString UIimagePath=":/images/other";
 const QString UITextBackground=UIimagePath+"/TextBackground.png";
 const QString UITextborder=UIimagePath+"/Textborder.png";
 }

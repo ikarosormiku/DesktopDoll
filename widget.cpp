@@ -6,6 +6,8 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget),Moving(false)
 {
     ui->setupUi(this);
+    QResource::registerResource(ImagesResourcePath);//加载资源文件
+    QResource::registerResource(AudioResourcePath);//加载资源文件
     InitClassVariable();
     InitWindowUI();
     playAudio(AudioDef::Open);
@@ -59,6 +61,8 @@ void Widget::mouseReleaseEvent(QMouseEvent *event)
 
 void Widget::InitClassVariable()
 {
+    WindowWidth=ui->lab_background->width();
+    WindowHeight = ui->lab_background->height();
     Player = new QMediaPlayer(this);
     Player->setVolume(100);
     AudioPlaying = false;
@@ -68,6 +72,8 @@ void Widget::InitClassVariable()
     CurRole = new Role();
     RoleSelectionWindow = new RoleSelection();
     connect(RoleSelectionWindow,&RoleSelection::RoleChange,this,&Widget::ChangeRole);
+    SetUpWindow = new WindowSetUp();
+    connect(SetUpWindow,&WindowSetUp::ChangeWindowSize,this,&Widget::onChangeWindowSize);
 }
 
 void Widget::InitWindowUI()
@@ -76,7 +82,6 @@ void Widget::InitWindowUI()
     this->setAttribute(Qt::WA_QuitOnClose);
     this->setAttribute(Qt::WA_TranslucentBackground);
     this->move(QApplication::desktop()->screenGeometry().width()-this->width(),0);
-
     //set this->ui
     ui->frame->setVisible(false);
     ChangeRole(RoleDef::blbl22);
@@ -186,6 +191,11 @@ void Widget::on_Widget_customContextMenuRequested(const QPoint &pos)
     pMenu->addAction(pWindowAction);
     connect(pWindowAction,&QAction::triggered,this,&Widget::onTaskBoxContextMenuEvent);
 
+    pWindowAction = new QAction(tr("设置"), this);
+    pWindowAction->setData(RightClickEenuDef::OpenSetUpWindow);
+    pMenu->addAction(pWindowAction);
+    connect(pWindowAction,&QAction::triggered,this,&Widget::onTaskBoxContextMenuEvent);
+
     pWindowAction = new QAction(tr("关闭"), this);
     pWindowAction->setData(RightClickEenuDef::WindowClose);
     pMenu->addAction(pWindowAction);
@@ -212,6 +222,10 @@ void Widget::onTaskBoxContextMenuEvent()
      }
      case RightClickEenuDef::OpenRoleSelectionWindow:{
          RoleSelectionWindow->show();
+         break;
+     }
+     case RightClickEenuDef::OpenSetUpWindow:{
+         //SetUpWindow->show();
          break;
      }
      case RightClickEenuDef::WindowClose:{
@@ -264,4 +278,17 @@ void Widget::onTimerEvent()
         AudioPlaying=false;
         Timer->stop();
     }
+}
+
+void Widget::onChangeWindowSize(int height)
+{
+    double Proportion = (double)height/(double)WindowHeight;
+    int Width = WindowWidth*Proportion;
+    QString path = CurRole->GetRoleBackgroundImage();
+    QPixmap Background(path);
+    QPixmap ChangeBackground = Background.scaled(Width,height, Qt::IgnoreAspectRatio);
+    ui->lab_background->setPixmap(ChangeBackground);
+
+    ui->frame->setFixedSize(ui->frame->width()*Proportion,ui->frame->height()*Proportion);
+    ui->tEd_Text->setFixedSize(ui->tEd_Text->width()*Proportion,ui->tEd_Text->height()*Proportion);
 }

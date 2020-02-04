@@ -21,9 +21,11 @@
 #include <QTimer>
 #include <synchapi.h>
 #include <QtGlobal>
+#include <QResource>
 #include "globaldef.h"
 #include "role.h"
 #include "roleselection.h"
+#include "windowsetup.h"
 namespace Ui {
 class Widget;
 }
@@ -46,6 +48,8 @@ private slots:
 
 private:
     Ui::Widget *ui;
+    int WindowWidth;
+    int WindowHeight;
     bool Moving;          //控制移动
     bool AudioPlaying;    //控制语音
     bool MousePressing;   //控制鼠标按键
@@ -55,6 +59,7 @@ private:
     QTimer* Timer;        //定时器
     Role* CurRole;        //当前角色
     RoleSelection* RoleSelectionWindow;//选择角色窗口
+    WindowSetUp* SetUpWindow;
     void InitClassVariable();
     void InitWindowUI();
     void CloseAllObject();
@@ -70,6 +75,7 @@ private:
     void onIconMessage();
     void onIconBoxContextMenuEvent();
     void onTimerEvent();
+    void onChangeWindowSize(int height);
 };
 
 #endif // WIDGET_H
