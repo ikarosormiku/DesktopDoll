@@ -4,10 +4,14 @@
 #include <QWidget>
 #include <QPixmap>
 #include <QPalette>
+#include <QPushButton>
+#include <QScrollArea>
+
 #include "globaldef.h"
 namespace Ui {
 class RoleSelection;
 }
+
 
 class RoleSelection : public QWidget
 {
@@ -40,11 +44,33 @@ private slots:
 
     void on_btn_niaohai_clicked();
 
+    void on_btn_ALUpPage_clicked();
+
+    void on_btn_ALNextPage_clicked();
+
+    void on_btn_ALBaiYing_clicked();
+
+    void on_btn_ALChongYing_clicked();
+
+    void on_btn_ALHuangJia_clicked();
+
+    void on_btn_ALTieXue_clicked();
+
 private:
+    enum AzurLanePageDef{
+        BaiYing=256,
+        ChongYing,
+        HuangJia,
+        TieXue
+    };
     Ui::RoleSelection *ui;
     RoleDef CurRole;
+    AzurLanePageDef AzurLaneCurrentPage;
+    int AzurLaneFrameWidth;
     void InitWindowUI();
+    void InitClassVariable();
     void SetRoleInfo();
+    void AzurLaneChangePage(AzurLanePageDef page);
 signals:
     void RoleChange(RoleDef role);
 };

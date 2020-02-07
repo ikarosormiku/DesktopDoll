@@ -15,6 +15,7 @@ Widget::Widget(QWidget *parent) :
 
 Widget::~Widget()
 {
+    delete RoleSelectionWindow;
     delete Icon;
     delete ui;
 }
@@ -72,8 +73,8 @@ void Widget::InitClassVariable()
     CurRole = new Role();
     RoleSelectionWindow = new RoleSelection();
     connect(RoleSelectionWindow,&RoleSelection::RoleChange,this,&Widget::ChangeRole);
-    SetUpWindow = new WindowSetUp();
-    connect(SetUpWindow,&WindowSetUp::ChangeWindowSize,this,&Widget::onChangeWindowSize);
+//    SetUpWindow = new WindowSetUp();
+//    connect(SetUpWindow,&WindowSetUp::ChangeWindowSize,this,&Widget::onChangeWindowSize);
 }
 
 void Widget::InitWindowUI()
@@ -106,7 +107,8 @@ void Widget::InitWindowUI()
 
 void Widget::CloseAllObject()
 {
-    this->close();
+    RoleSelectionWindow->close();
+    this->close();    
 }
 
 void Widget::playAudio(AudioDef audio)

@@ -6,7 +6,7 @@ RoleSelection::RoleSelection(QWidget *parent) :
     ui(new Ui::RoleSelection)
 {
     ui->setupUi(this);
-    CurRole = RoleDef::blbl22;
+    InitClassVariable();
     InitWindowUI();
 }
 
@@ -17,7 +17,7 @@ RoleSelection::~RoleSelection()
 
 void RoleSelection::InitWindowUI()
 {
-//    QPalette pa(gHeadImagePath22);
+    this->setWindowFlags(Qt::Tool);
     ui->btn_22->setStyleSheet("QPushButton{border-image: url("+RoleResources::blbl22::HeadImagePath+");}");
     ui->btn_biruishuiyi->setStyleSheet("QPushButton{border-image: url("+RoleResources::biruishuiyi::HeadImagePath+");}");
     ui->btn_heitaizi->setStyleSheet("QPushButton{border-image: url("+RoleResources::heitaizi::HeadImagePath+");}");
@@ -28,7 +28,13 @@ void RoleSelection::InitWindowUI()
     ui->btn_TLXlifu->setStyleSheet("QPushButton{border-image: url("+RoleResources::tianlangxinglifu::HeadImagePath+");}");
     ui->btn_xili->setStyleSheet("QPushButton{border-image: url("+RoleResources::xili::HeadImagePath+");}");
     ui->btn_yousa->setStyleSheet("QPushButton{border-image: url("+RoleResources::yousa::HeadImagePath+");}");
+}
 
+void RoleSelection::InitClassVariable()
+{
+    AzurLaneCurrentPage = AzurLanePageDef::BaiYing;
+    CurRole = RoleDef::blbl22;
+    AzurLaneFrameWidth = 580;
 }
 
 void RoleSelection::SetRoleInfo()
@@ -89,7 +95,44 @@ void RoleSelection::SetRoleInfo()
     }
     ui->lab_RoleHeadImage->setStyleSheet("QLabel{border-image: url("+HeadPath+");}");
     ui->lab_RoleName->setText(Name);
+}
 
+void RoleSelection::AzurLaneChangePage(AzurLanePageDef page)
+{
+    switch (page) {
+    case AzurLanePageDef::BaiYing:{
+        ui->frame_BaiYing->move(AzurLaneFrameWidth*0,0);
+        ui->frame_Chongying->move(AzurLaneFrameWidth*1,0);
+        ui->frame_Huangjia->move(AzurLaneFrameWidth*2,0);
+        ui->frame_TieXue->move(AzurLaneFrameWidth*3,0);
+        AzurLaneCurrentPage = AzurLanePageDef::BaiYing;
+        break;
+    }
+    case AzurLanePageDef::ChongYing:{
+        ui->frame_BaiYing->move(AzurLaneFrameWidth*(-1),0);
+        ui->frame_Chongying->move(AzurLaneFrameWidth*0,0);
+        ui->frame_Huangjia->move(AzurLaneFrameWidth*1,0);
+        ui->frame_TieXue->move(AzurLaneFrameWidth*2,0);
+        AzurLaneCurrentPage = AzurLanePageDef::ChongYing;
+        break;
+    }
+    case AzurLanePageDef::HuangJia:{
+        ui->frame_BaiYing->move(AzurLaneFrameWidth*(-2),0);
+        ui->frame_Chongying->move(AzurLaneFrameWidth*(-1),0);
+        ui->frame_Huangjia->move(AzurLaneFrameWidth*0,0);
+        ui->frame_TieXue->move(AzurLaneFrameWidth*1,0);
+        AzurLaneCurrentPage = AzurLanePageDef::HuangJia;
+        break;
+    }
+    case AzurLanePageDef::TieXue:{
+        ui->frame_BaiYing->move(AzurLaneFrameWidth*(-3),0);
+        ui->frame_Chongying->move(AzurLaneFrameWidth*(-2),0);
+        ui->frame_Huangjia->move(AzurLaneFrameWidth*(-1),0);
+        ui->frame_TieXue->move(AzurLaneFrameWidth*0,0);
+        AzurLaneCurrentPage = AzurLanePageDef::TieXue;
+        break;
+    }
+    }
 }
 
 void RoleSelection::on_btn_Determine_clicked()
@@ -157,4 +200,60 @@ void RoleSelection::on_btn_niaohai_clicked()
 {
     CurRole = RoleDef::niaohai;
     SetRoleInfo();
+}
+
+void RoleSelection::on_btn_ALUpPage_clicked()
+{
+    switch (AzurLaneCurrentPage) {
+    case AzurLanePageDef::ChongYing:{
+        AzurLaneChangePage(AzurLanePageDef::BaiYing);
+        break;
+    }
+    case AzurLanePageDef::HuangJia:{
+        AzurLaneChangePage(AzurLanePageDef::ChongYing);
+        break;
+    }
+    case AzurLanePageDef::TieXue:{
+        AzurLaneChangePage(AzurLanePageDef::HuangJia);
+        break;
+    }
+    }
+}
+
+void RoleSelection::on_btn_ALNextPage_clicked()
+{
+    switch (AzurLaneCurrentPage) {
+    case AzurLanePageDef::BaiYing:{
+        AzurLaneChangePage(AzurLanePageDef::ChongYing);
+        break;
+    }
+    case AzurLanePageDef::ChongYing:{
+        AzurLaneChangePage(AzurLanePageDef::HuangJia);
+        break;
+    }
+    case AzurLanePageDef::HuangJia:{
+        AzurLaneChangePage(AzurLanePageDef::TieXue);
+        break;
+    }
+    }
+}
+
+void RoleSelection::on_btn_ALBaiYing_clicked()
+{
+    AzurLaneChangePage(AzurLanePageDef::BaiYing);
+}
+
+void RoleSelection::on_btn_ALChongYing_clicked()
+{
+    AzurLaneChangePage(AzurLanePageDef::ChongYing);
+}
+
+void RoleSelection::on_btn_ALHuangJia_clicked()
+{
+    AzurLaneChangePage(AzurLanePageDef::HuangJia);
+}
+
+void RoleSelection::on_btn_ALTieXue_clicked()
+{
+    AzurLaneChangePage(AzurLanePageDef::TieXue);
 }
