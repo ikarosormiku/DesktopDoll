@@ -73,32 +73,6 @@
       <string>22</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btn_yousa">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>0</y>
-       <width>70</width>
-       <height>70</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lab_yousa">
-     <property name="geometry">
-      <rect>
-       <x>88</x>
-       <y>70</y>
-       <width>54</width>
-       <height>15</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>泠鸢yousa</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -136,14 +110,14 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>559</width>
-         <height>500</height>
+         <width>576</width>
+         <height>278</height>
         </rect>
        </property>
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>500</height>
+         <height>278</height>
         </size>
        </property>
        <widget class="QLabel" name="lab_biruishuiyi">
@@ -222,6 +196,32 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_nengdai">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>0</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_nengdai">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>70</y>
+          <width>30</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>能代</string>
         </property>
        </widget>
       </widget>
@@ -380,7 +380,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>1</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_ALChongYing">
@@ -393,7 +393,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>2</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_ALHuangJia">
@@ -406,7 +406,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>3</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_ALTieXue">
@@ -419,7 +419,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>4</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_ALUpPage">
@@ -432,7 +432,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>&lt;</string>
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="btn_ALNextPage">
@@ -445,7 +445,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>&gt;</string>
+      <string/>
      </property>
     </widget>
     <widget class="QFrame" name="frame_TieXue">
@@ -484,6 +484,58 @@
          <height>278</height>
         </rect>
        </property>
+       <widget class="QPushButton" name="btn_dadi">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_dadi">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>70</y>
+          <width>30</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>大帝</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_dadi_h">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>0</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_dadi_h">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>70</y>
+          <width>35</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>大帝H</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -523,6 +575,32 @@
          <height>278</height>
         </rect>
        </property>
+       <widget class="QPushButton" name="btn_huonvlulu">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>火奴鲁鲁</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -577,7 +655,7 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QScrollArea" name="scrollArea_BaiYing_2">
+     <widget class="QScrollArea" name="scrollArea_LuoTianYi">
       <property name="geometry">
        <rect>
         <x>-2</x>
@@ -598,6 +676,136 @@
          <height>278</height>
         </rect>
        </property>
+       <widget class="QPushButton" name="btn_luotianyi01">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_luotian01">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>70</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>洛天依01</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_luotian02">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>70</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>洛天依02</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_luotianyi02">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>0</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_luotian03">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>70</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>洛天依03</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_luotianyi03">
+        <property name="geometry">
+         <rect>
+          <x>160</x>
+          <y>0</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_luotian04">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>70</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>洛天依04</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_luotianyi04">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>0</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_luotian05">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>70</y>
+          <width>54</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>洛天依05</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_luotianyi05">
+        <property name="geometry">
+         <rect>
+          <x>320</x>
+          <y>0</y>
+          <width>70</width>
+          <height>70</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -606,6 +814,32 @@
     <attribute name="title">
      <string>VirtuaReal</string>
     </attribute>
+    <widget class="QPushButton" name="btn_yousa">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>70</width>
+       <height>70</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lab_yousa">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>54</width>
+       <height>15</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>泠鸢yousa</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_6">
     <attribute name="title">

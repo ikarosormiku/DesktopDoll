@@ -3,62 +3,112 @@
 Role::Role()
 {
     m_role=RoleDef::blbl22;
-    m_AudioPath = RoleResources::blbl22::AudioPath;
-    m_ImagePath = RoleResources::blbl22::ImagePath;
+    m_AudioPath = BiLiBiLi::bl22::AudioPath;
+    m_ImagePath = BiLiBiLi::bl22::ImagePath;
 }
 
 void Role::SetRole(RoleDef role)
 {
     m_role=role;
     switch (role) {
+    //bilibili
     case RoleDef::blbl22:{
-        m_AudioPath = RoleResources::blbl22::AudioPath;
-        m_ImagePath = RoleResources::blbl22::ImagePath;
+        m_AudioPath = BiLiBiLi::bl22::AudioPath;
+        m_ImagePath = BiLiBiLi::bl22::ImagePath;
         break;
     }
+    //AzurLane
     case RoleDef::biruishuiyi:{
-        m_AudioPath = RoleResources::biruishuiyi::AudioPath;
-        m_ImagePath = RoleResources::biruishuiyi::ImagePath;
+        m_AudioPath = AzurLane::biruishuiyi::AudioPath;
+        m_ImagePath = AzurLane::biruishuiyi::ImagePath;
+        break;
+    }
+    case RoleDef::dadi:{
+        m_AudioPath = AzurLane::dadi::AudioPath;
+        m_ImagePath = AzurLane::dadi::ImagePath;
+        break;
+    }
+    case RoleDef::dadi_h:{
+        m_AudioPath = AzurLane::dadi_h::AudioPath;
+        m_ImagePath = AzurLane::dadi_h::ImagePath;
         break;
     }
     case RoleDef::heitaizi:{
-        m_AudioPath = RoleResources::heitaizi::AudioPath;
-        m_ImagePath = RoleResources::heitaizi::ImagePath;
+        m_AudioPath = AzurLane::heitaizi::AudioPath;
+        m_ImagePath = AzurLane::heitaizi::ImagePath;
         break;
     }
     case RoleDef::heitaizishuizhuo:{
-        m_AudioPath = RoleResources::heitaizishuizhuo::AudioPath;
-        m_ImagePath = RoleResources::heitaizishuizhuo::ImagePath;
+        m_AudioPath = AzurLane::heitaizishuizhuo::AudioPath;
+        m_ImagePath = AzurLane::heitaizishuizhuo::ImagePath;
+        break;
+    }
+    case RoleDef::huonvlulu:{
+        m_AudioPath = AzurLane::huonvlulu::AudioPath;
+        m_ImagePath = AzurLane::huonvlulu::ImagePath;
         break;
     }
     case RoleDef::kulasuo:{
-        m_AudioPath = RoleResources::kulasuo::AudioPath;
-        m_ImagePath = RoleResources::kulasuo::ImagePath;
+        m_AudioPath = AzurLane::kulasuo::AudioPath;
+        m_ImagePath = AzurLane::kulasuo::ImagePath;
         break;
     }
-    case RoleDef::liantong1:{
-        m_AudioPath = RoleResources::liantong1::AudioPath;
-        m_ImagePath = RoleResources::liantong1::ImagePath;
+    case RoleDef::nengdai:{
+        m_AudioPath = AzurLane::nengdai::AudioPath;
+        m_ImagePath = AzurLane::nengdai::ImagePath;
         break;
     }
     case RoleDef::niaohai:{
-        m_AudioPath = RoleResources::niaohai::AudioPath;
-        m_ImagePath = RoleResources::niaohai::ImagePath;
+        m_AudioPath = AzurLane::niaohai::AudioPath;
+        m_ImagePath = AzurLane::niaohai::ImagePath;
         break;
     }
     case RoleDef::tianlangxinglifu:{
-        m_AudioPath = RoleResources::tianlangxinglifu::AudioPath;
-        m_ImagePath = RoleResources::tianlangxinglifu::ImagePath;
+        m_AudioPath = AzurLane::tianlangxinglifu::AudioPath;
+        m_ImagePath = AzurLane::tianlangxinglifu::ImagePath;
         break;
     }
     case RoleDef::xili:{
-        m_AudioPath = RoleResources::xili::AudioPath;
-        m_ImagePath = RoleResources::xili::ImagePath;
+        m_AudioPath = AzurLane::xili::AudioPath;
+        m_ImagePath = AzurLane::xili::ImagePath;
         break;
     }
+    //LianTong
+    case RoleDef::liantong1:{
+        m_AudioPath = LianTong::liantong1::AudioPath;
+        m_ImagePath = LianTong::liantong1::ImagePath;
+        break;
+    }
+    //VOCALOID
+    case RoleDef::luotianyi01:{
+        m_AudioPath = VOCALOID::luotianyi01::AudioPath;
+        m_ImagePath = VOCALOID::luotianyi01::ImagePath;
+        break;
+    }
+    case RoleDef::luotianyi02:{
+        m_AudioPath = VOCALOID::luotianyi02::AudioPath;
+        m_ImagePath = VOCALOID::luotianyi02::ImagePath;
+        break;
+    }
+    case RoleDef::luotianyi03:{
+        m_AudioPath = VOCALOID::luotianyi03::AudioPath;
+        m_ImagePath = VOCALOID::luotianyi03::ImagePath;
+        break;
+    }
+    case RoleDef::luotianyi04:{
+        m_AudioPath = VOCALOID::luotianyi04::AudioPath;
+        m_ImagePath = VOCALOID::luotianyi04::ImagePath;
+        break;
+    }
+    case RoleDef::luotianyi05:{
+        m_AudioPath = VOCALOID::luotianyi05::AudioPath;
+        m_ImagePath = VOCALOID::luotianyi05::ImagePath;
+        break;
+    }
+    //VirtuaReal
     case RoleDef::yousa:{
-        m_AudioPath = RoleResources::yousa::AudioPath;
-        m_ImagePath = RoleResources::yousa::ImagePath;
+        m_AudioPath = VirtuaReal::yousa::AudioPath;
+        m_ImagePath = VirtuaReal::yousa::ImagePath;
         break;
     }
     }
@@ -113,35 +163,39 @@ const QString Role::GetRoleOpenText()
 {
     QString path;
     switch (m_role) {
+    //bilibili
     case RoleDef::blbl22:
-        path=RoleResources::blbl22::OpenText;
+        path=BiLiBiLi::bl22::OpenText;
         break;
+    //AzurLane
     case RoleDef::biruishuiyi:
-        path=RoleResources::biruishuiyi::OpenText;
+        path=AzurLane::biruishuiyi::OpenText;
         break;
     case RoleDef::heitaizi:
-        path=RoleResources::heitaizi::OpenText;
+        path=AzurLane::heitaizi::OpenText;
         break;
     case RoleDef::heitaizishuizhuo:
-        path=RoleResources::heitaizishuizhuo::OpenText;
+        path=AzurLane::heitaizishuizhuo::OpenText;
         break;
     case RoleDef::kulasuo:
-        path=RoleResources::kulasuo::OpenText;
-        break;
-    case RoleDef::liantong1:
-        path=RoleResources::liantong1::OpenText;
+        path=AzurLane::kulasuo::OpenText;
         break;
     case RoleDef::niaohai:
-        path=RoleResources::niaohai::OpenText;
+        path=AzurLane::niaohai::OpenText;
         break;
     case RoleDef::tianlangxinglifu:
-        path=RoleResources::tianlangxinglifu::OpenText;
+        path=AzurLane::tianlangxinglifu::OpenText;
         break;
     case RoleDef::xili:
-        path=RoleResources::xili::OpenText;
+        path=AzurLane::xili::OpenText;
         break;
+    //liantong
+    case RoleDef::liantong1:
+        path=LianTong::liantong1::OpenText;
+        break;
+    //VirtuaReal
     case RoleDef::yousa:
-        path=RoleResources::yousa::OpenText;
+        path=VirtuaReal::yousa::OpenText;
         break;
     }
     return path;
@@ -151,35 +205,39 @@ const QString Role::GetRoleChat1Text()
 {
     QString path;
     switch (m_role) {
+    //bilibili
     case RoleDef::blbl22:
-        path=RoleResources::blbl22::ChatText1;
+        path=BiLiBiLi::bl22::ChatText1;
         break;
+    //AzurLane
     case RoleDef::biruishuiyi:
-        path=RoleResources::biruishuiyi::ChatText1;
+        path=AzurLane::biruishuiyi::ChatText1;
         break;
     case RoleDef::heitaizi:
-        path=RoleResources::heitaizi::ChatText1;
+        path=AzurLane::heitaizi::ChatText1;
         break;
     case RoleDef::heitaizishuizhuo:
-        path=RoleResources::heitaizishuizhuo::ChatText1;
+        path=AzurLane::heitaizishuizhuo::ChatText1;
         break;
     case RoleDef::kulasuo:
-        path=RoleResources::kulasuo::ChatText1;
-        break;
-    case RoleDef::liantong1:
-        path=RoleResources::liantong1::ChatText1;
+        path=AzurLane::kulasuo::ChatText1;
         break;
     case RoleDef::niaohai:
-        path=RoleResources::niaohai::ChatText1;
+        path=AzurLane::niaohai::ChatText1;
         break;
     case RoleDef::tianlangxinglifu:
-        path=RoleResources::tianlangxinglifu::ChatText1;
+        path=AzurLane::tianlangxinglifu::ChatText1;
         break;
     case RoleDef::xili:
-        path=RoleResources::xili::ChatText1;
+        path=AzurLane::xili::ChatText1;
         break;
+    //LianTong
+    case RoleDef::liantong1:
+        path=LianTong::liantong1::ChatText1;
+        break;
+    //VirtuaReal
     case RoleDef::yousa:
-        path=RoleResources::yousa::ChatText1;
+        path=VirtuaReal::yousa::ChatText1;
         break;
     }
     return path;
@@ -189,35 +247,39 @@ const QString Role::GetRoleChat2Text()
 {
     QString path;
     switch (m_role) {
+    //bilibili
     case RoleDef::blbl22:
-        path=RoleResources::blbl22::ChatText2;
+        path=BiLiBiLi::bl22::ChatText2;
         break;
+    //AzurLane
     case RoleDef::biruishuiyi:
-        path=RoleResources::biruishuiyi::ChatText2;
+        path=AzurLane::biruishuiyi::ChatText2;
         break;
     case RoleDef::heitaizi:
-        path=RoleResources::heitaizi::ChatText2;
+        path=AzurLane::heitaizi::ChatText2;
         break;
     case RoleDef::heitaizishuizhuo:
-        path=RoleResources::heitaizishuizhuo::ChatText2;
+        path=AzurLane::heitaizishuizhuo::ChatText2;
         break;
     case RoleDef::kulasuo:
-        path=RoleResources::kulasuo::ChatText2;
-        break;
-    case RoleDef::liantong1:
-        path=RoleResources::liantong1::ChatText2;
+        path=AzurLane::kulasuo::ChatText2;
         break;
     case RoleDef::niaohai:
-        path=RoleResources::niaohai::ChatText2;
+        path=AzurLane::niaohai::ChatText2;
         break;
     case RoleDef::tianlangxinglifu:
-        path=RoleResources::tianlangxinglifu::ChatText2;
+        path=AzurLane::tianlangxinglifu::ChatText2;
         break;
     case RoleDef::xili:
-        path=RoleResources::xili::ChatText2;
+        path=AzurLane::xili::ChatText2;
         break;
+    //LianTong
+    case RoleDef::liantong1:
+        path=LianTong::liantong1::ChatText2;
+        break;
+    //VirtuaReal
     case RoleDef::yousa:
-        path=RoleResources::yousa::ChatText2;
+        path=VirtuaReal::yousa::ChatText2;
         break;
     }
     return path;
@@ -227,35 +289,39 @@ const QString Role::GetRoleChat3Text()
 {
     QString path;
     switch (m_role) {
+    //bilibili
     case RoleDef::blbl22:
-        path=RoleResources::blbl22::ChatText3;
+        path=BiLiBiLi::bl22::ChatText3;
         break;
+    //AzurLane
     case RoleDef::biruishuiyi:
-        path=RoleResources::biruishuiyi::ChatText3;
+        path=AzurLane::biruishuiyi::ChatText3;
         break;
     case RoleDef::heitaizi:
-        path=RoleResources::heitaizi::ChatText3;
+        path=AzurLane::heitaizi::ChatText3;
         break;
     case RoleDef::heitaizishuizhuo:
-        path=RoleResources::heitaizishuizhuo::ChatText3;
+        path=AzurLane::heitaizishuizhuo::ChatText3;
         break;
     case RoleDef::kulasuo:
-        path=RoleResources::kulasuo::ChatText3;
-        break;
-    case RoleDef::liantong1:
-        path=RoleResources::liantong1::ChatText3;
+        path=AzurLane::kulasuo::ChatText3;
         break;
     case RoleDef::niaohai:
-        path=RoleResources::niaohai::ChatText3;
+        path=AzurLane::niaohai::ChatText3;
         break;
     case RoleDef::tianlangxinglifu:
-        path=RoleResources::tianlangxinglifu::ChatText3;
+        path=AzurLane::tianlangxinglifu::ChatText3;
         break;
     case RoleDef::xili:
-        path=RoleResources::xili::ChatText3;
+        path=AzurLane::xili::ChatText3;
         break;
+    //LianTong
+    case RoleDef::liantong1:
+        path=LianTong::liantong1::ChatText3;
+        break;
+    //VirtuaReal
     case RoleDef::yousa:
-        path=RoleResources::yousa::ChatText3;
+        path=VirtuaReal::yousa::ChatText3;
         break;
     }
     return path;

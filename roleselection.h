@@ -56,6 +56,24 @@ private slots:
 
     void on_btn_ALTieXue_clicked();
 
+    void on_btn_huonvlulu_clicked();
+
+    void on_btn_nengdai_clicked();
+
+    void on_btn_dadi_clicked();
+
+    void on_btn_dadi_h_clicked();
+
+    void on_btn_luotianyi01_clicked();
+
+    void on_btn_luotianyi02_clicked();
+
+    void on_btn_luotianyi03_clicked();
+
+    void on_btn_luotianyi04_clicked();
+
+    void on_btn_luotianyi05_clicked();
+
 private:
     enum AzurLanePageDef{
         BaiYing=256,
